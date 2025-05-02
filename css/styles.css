@@ -1,0 +1,446 @@
+/* Основные стили для тела страницы */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Стили для формы поиска */
+form {
+    display: flex;
+    justify-content: center;
+}
+
+/* Стили для поля ввода поиска */
+#search-input {
+    padding: 12px 20px;
+    width: 300px; 
+    margin: 0;
+    border-radius: 5px 5px 0 0; 
+    border: 2px solid #ddd;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Стили для поля ввода при фокусе */
+#search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Контейнер для игр */
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Стили для каждой игры */
+.game {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 250px;
+    margin-right: 10px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Стили для изображений игр */
+.game img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Стили для названия игры */
+.game-title {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+/* Стили для цены игры */
+.price {
+    color: green;
+    font-size: 18px;
+}
+
+/* Стили для светлой темы */
+body.light-theme {
+    background-color: white;
+    color: black;
+}
+
+/* Стили для кнопок на странице */
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Стили для темной темы */
+body.dark-theme {
+    background-color: black;
+    color: white;
+}
+
+/* Стили для игры в темной теме */
+body.dark-theme .game {
+    background-color: #333;
+    border-color: #444;
+}
+
+/* Стили для названия игры в темной теме */
+body.dark-theme .game-title {
+    color: #ccc;
+}
+
+/* Стили для цены игры в темной теме */
+body.dark-theme .price {
+    color: #4CAF50;
+}
+
+/* Стили для поля поиска в темной теме */
+body.dark-theme #search-input {
+    background-color: #555;
+    color: white;
+    border-color: #666;
+}
+
+/* Стили для поля поиска при фокусе в темной теме */
+body.dark-theme #search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Стили для кнопок в темной теме */
+body.dark-theme button {
+    background-color: #333;
+    color: white;
+    border: none;
+}
+
+/* Стили для кнопок на hover в темной теме */
+body.dark-theme button:hover {
+    background-color: #555;
+}
+
+/* Стили для заголовка сайта */
+.site-header {
+    background-color: #f8f8f8;
+    padding: 15px 30px;
+    border-bottom: 2px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Контейнер для заголовка */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Стили для названия сайта */
+.site-title {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Контейнер для кнопок в шапке */
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Стили для кнопок в шапке */
+.header-buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Стили для кнопок в шапке при hover */
+.header-buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для заголовка и кнопок в темной теме */
+body.dark-theme .site-header {
+    background-color: #333;
+    border-bottom-color: #444;
+}
+
+body.dark-theme .header-buttons button {
+    background-color: #555;
+}
+
+body.dark-theme .header-buttons button:hover {
+    background-color: #777;
+}
+
+/* Стили для ссылок на игры */
+.game-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Стили для выпадающего списка валюты */
+#currency-selector {
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 2px solid #ddd;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    background-image: url('down-arrow.svg'); 
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+/* Стили для выпадающего списка валюты при фокусе */
+#currency-selector:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Стили для выпадающего списка валюты при наведении */
+#currency-selector:hover {
+    background-color: #f0f0f0;
+}
+
+/* Стили для выпадающего списка валюты в темной теме */
+body.dark-theme #currency-selector {
+    background-color: #444;
+    color: white;
+    border-color: #666;
+}
+
+/* Стили для выпадающего списка валюты при фокусе в темной теме */
+body.dark-theme #currency-selector:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Стили для выпадающего списка валюты при наведении в темной теме */
+body.dark-theme #currency-selector:hover {
+    background-color: #555;
+}
+
+/* Стили для кнопки лупы */
+.search-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    padding: 8px;
+    margin-left: 10px;
+}
+
+/* Эффект при наведении на кнопку лупы */
+.search-button:hover {
+    transform: scale(1.1); 
+}
+
+/* Стили для кнопки лупы в темной теме */
+body.dark-theme .search-button {
+    color: white;
+}
+
+body.dark-theme .search-button:hover {
+    color: #007bff;
+}
+
+/* Стили для разделов списка */
+.section-title {
+    font-size: 24px;
+    color: #333;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Стили для контейнера списка */
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Стили для каждой игры в списке */
+.game {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    margin: 10px;
+}
+
+/* Эффект при наведении на карточку игры */
+.game:hover {
+    transform: scale(1.05);
+}
+
+.game img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.game-title {
+    font-size: 18px;
+    padding: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.price {
+    padding: 10px;
+    font-size: 16px;
+    color: #007bff;
+}
+
+.price-usd {
+    font-weight: bold;
+    color: green;
+}
+
+.price-symbol {
+    font-size: 14px;
+}
+
+body.dark-theme .section-title {
+    color: #ccc; 
+}
+
+/* Стили для автодополнения */
+.autocomplete-items {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 100;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 290px;
+    left: 0;
+    border-radius: 0 0 5px 5px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slide-down 0.3s forwards;
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    opacity: 0;
+    animation: fade-in 0.3s forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.autocomplete-item:hover {
+    background-color: #f0f0f0;
+}
+
+body.dark-theme .autocomplete-items {
+    background: #444;
+    border-color: #666;
+}
+
+body.dark-theme .autocomplete-item {
+    color: white;
+}
+
+body.dark-theme .autocomplete-item:hover {
+    background-color: #555;
+}
+
+/* ---------- Новое: Стили для заголовка + кнопки "Повний список" ---------- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 20px 10px;
+}
+
+.section-header .section-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.see-all-button {
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.see-all-button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+body.dark-theme .section-header .section-title {
+    color: #ccc;
+}
+
+body.dark-theme .see-all-button {
+    color: #66b2ff;
+}
+
+body.dark-theme .see-all-button:hover {
+    background-color: #66b2ff;
+    color: black;
+}
