@@ -1,0 +1,29 @@
+/* Стили для выпадающего списка валюты */
+#currency-selector {
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 2px solid #ddd;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    background-image: url('down-arrow.svg'); 
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+/* Стили для выпадающего списка валюты при фокусе */
+#currency-selector:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Стили для выпадающего списка валюты при наведении */
+#currency-selector:hover {
+    background-color: #f0f0f0;
+}
+

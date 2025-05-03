@@ -1,0 +1,82 @@
+.main-screenshot {
+    width: 640px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.deals ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.deals li {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin: 2px 4px 2px 0;
+    font-size: 0.85em;
+}
+
+/* Стили для главного скриншота */
+.main-screenshot {
+    width: 100%;            /* Изображение будет растягиваться на 100% от доступной ширины */
+    max-width: 500px;       /* Ограничение максимальной ширины изображения */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Контейнер с изображением и стрелками */
+.main-screenshot-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    max-width: 500px;       /* Ограничим максимальную ширину контейнера */
+    width: 100%;            /* Контейнер будет занимать 100% доступной ширины */
+    overflow: hidden;       /* Скрыть любые элементы, выходящие за пределы контейнера */
+}
+
+/* Стрелки переключения изображений */
+.arrow-left,
+.arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1); /* Добавим эффект увеличения при наведении */
+}
+
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+

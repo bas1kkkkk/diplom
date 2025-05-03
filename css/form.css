@@ -1,0 +1,24 @@
+/* Стили для формы поиска */
+form {
+    display: flex;
+    justify-content: center;
+}
+
+/* Стили для поля ввода поиска */
+#search-input {
+    padding: 12px 20px;
+    width: 300px; 
+    margin: 0;
+    border-radius: 5px 5px 0 0; 
+    border: 2px solid #ddd;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Стили для поля ввода при фокусе */
+#search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+

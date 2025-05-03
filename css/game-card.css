@@ -1,0 +1,126 @@
+/* Контейнер для игр */
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Стили для каждой игры */
+.game {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 250px;
+    margin-right: 10px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Стили для изображений игр */
+.game img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Стили для названия игры */
+.game-title {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+/* Стили для цены игры */
+.price {
+    color: green;
+    font-size: 18px;
+}
+
+/* Стили для ссылок на игры */
+.game-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Стили для контейнера списка */
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Стили для каждой игры в списке */
+.game {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    margin: 10px;
+}
+
+/* Эффект при наведении на карточку игры */
+.game:hover {
+    transform: scale(1.05);
+}
+
+.game img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.game-title {
+    font-size: 18px;
+    padding: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.price {
+    padding: 10px;
+    font-size: 16px;
+    color: #007bff;
+}
+
+.price-usd {
+    font-weight: bold;
+    color: green;
+}
+
+.price-symbol {
+    font-size: 14px;
+}
+
+.gameinfo {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.game-media {
+    flex: 1;
+}
+
+.deals .price {
+    color: green;
+    font-weight: bold;
+}
+
+.game-details {
+    flex: 1;
+}
+

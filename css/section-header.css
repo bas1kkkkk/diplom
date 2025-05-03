@@ -1,0 +1,15 @@
+/* ---------- Новое: Стили для заголовка + кнопки "Повний список" ---------- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 20px 10px;
+}
+
+.section-header .section-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
