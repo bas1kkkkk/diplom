@@ -444,3 +444,55 @@ body.dark-theme .see-all-button:hover {
     background-color: #66b2ff;
     color: black;
 }
+
+.gameinfo {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.game-media {
+    flex: 1;
+}
+
+.main-screenshot {
+    width: 640px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.deals ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.deals li {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.deals .price {
+    color: green;
+    font-weight: bold;
+}
+
+.game-details {
+    flex: 1;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin: 2px 4px 2px 0;
+    font-size: 0.85em;
+}
+
+

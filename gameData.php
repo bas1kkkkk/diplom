@@ -6,7 +6,7 @@ function getGameInfo($gameName) {
     $data = json_decode($response, true);
 
     if (!empty($data)) {
-        // Ищем точное совпадение названия
+
         foreach ($data as $game) {
             if (strcasecmp($game['external'], $gameName) == 0) {
                 return $game;
@@ -40,6 +40,36 @@ function getStoresMap() {
     }
 
     return $storeMap;
+}
+
+
+function getRawgInfo($gameName) {
+    $apiKey = '3c73e733b66c4c38b0c30137de245589';
+
+    $searchUrl = "https://api.rawg.io/api/games?search=" . urlencode($gameName) . "&key=$apiKey&page_size=1";
+    $searchResponse = file_get_contents($searchUrl);
+    $searchData = json_decode($searchResponse, true);
+
+    if (!empty($searchData['results'][0])) {
+        $game = $searchData['results'][0];
+        $slug = $game['slug'];
+ 
+        $detailsUrl = "https://api.rawg.io/api/games/$slug?key=$apiKey";
+        $detailsResponse = file_get_contents($detailsUrl);
+        $details = json_decode($detailsResponse, true);
+
+        return [
+            'name' => $details['name'] ?? '',
+            'image' => $details['background_image'] ?? '',
+            'genres' => $details['genres'] ?? [],
+            'tags' => $details['tags'] ?? [],
+            'rating' => $details['rating'] ?? '',
+            'platforms' => $details['platforms'] ?? [],
+            'screenshots' => $details['short_screenshots'] ?? [], // добавляем галерею скриншотов
+        ];
+    }
+
+    return null;
 }
 
 

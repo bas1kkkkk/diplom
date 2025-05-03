@@ -16,7 +16,7 @@ $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
 
         <div class="header-buttons">
             <form method="GET" action="index.php">
-                <input type="text" name="search" id="search-input" placeholder="Введите название игры" value="<?php echo htmlspecialchars($searchQuery, ENT_QUOTES, 'UTF-8'); ?>" autocomplete="off">
+                <input type="text" name="search" id="search-input" placeholder="Введiть назву гри" value="<?php echo htmlspecialchars($searchQuery, ENT_QUOTES, 'UTF-8'); ?>" autocomplete="off">
                 <button type="submit" id="search-button" class="search-button" aria-label="Поиск">
                     🔍
             </button>

@@ -3,22 +3,17 @@ require_once 'gameData.php';
 
 $gameName = isset($_GET['game']) ? $_GET['game'] : '';
 $game = getGameInfo($gameName);
-
-if ($game) {
-    $deals = getGameDeals($game['gameID']);
-    $stores = getStoresMap(); // Получаем соответствие storeID => storeName
-}
+$rawgInfo = getRawgInfo($gameName); 
+$deals = $game ? getGameDeals($game['gameID']) : [];
+$stores = getStoresMap();
 ?>
 
 <?php include 'parts/header.php'; ?>
 
 <div class="gameinfo">
-    <?php if ($game): ?>
-        <h1><?php echo htmlspecialchars($game['external']); ?></h1>
-        <img src="<?php echo $game['thumb']; ?>" alt="<?php echo htmlspecialchars($game['external']); ?>">
-
-        <?php if (!empty($deals)): ?>
-            <h2>Доступні ціни:</h2>
+    <div class="game-media">
+        <div class="deals">
+            <h2>Ціни в магазинах:</h2>
             <ul>
                 <?php foreach ($deals as $deal): ?>
                     <li>
@@ -37,12 +32,40 @@ if ($game) {
                     </li>
                 <?php endforeach; ?>
             </ul>
-        <?php else: ?>
-            <p>Немає доступних знижок для цієї гри.</p>
-        <?php endif; ?>
-    <?php else: ?>
-        <p>Гру не знайдено.</p>
-    <?php endif; ?>
+        </div>
+
+        <img src="<?php echo htmlspecialchars($rawgInfo['image'] ?? $game['thumb']); ?>"
+             alt="<?php echo htmlspecialchars($rawgInfo['name'] ?? $game['external']); ?>"
+             class="main-screenshot">
+
+        
+    </div>
+
+    
+    <div class="game-details">
+        <h1><?php echo htmlspecialchars($rawgInfo['name'] ?? $game['external']); ?></h1>
+        <p><strong>Рейтинг:</strong> <?php echo $rawgInfo['rating'] ?? 'N/A'; ?></p>
+
+        <p><strong>Жанри:</strong>
+            <?php
+            if (!empty($rawgInfo['genres'])) {
+                foreach ($rawgInfo['genres'] as $genre) {
+                    echo '<span class="tag">' . htmlspecialchars($genre['name']) . '</span> ';
+                }
+            }
+            ?>
+        </p>
+
+        <p><strong>Теги:</strong>
+            <?php
+            if (!empty($rawgInfo['tags'])) {
+                foreach (array_slice($rawgInfo['tags'], 0, 5) as $tag) {
+                    echo '<span class="tag">' . htmlspecialchars($tag['name']) . '</span> ';
+                }
+            }
+            ?>
+        </p>
+    </div>
 </div>
 
 <?php include 'parts/footer.php'; ?>

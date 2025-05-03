@@ -3,10 +3,8 @@ require_once 'gameData.php';
 
 $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
 
-// Функція для отримання списку ігор з найбільшими знижками або популярних ігор
 function fetchDeals($sortBy) {
     $url = "https://www.cheapshark.com/api/1.0/deals?sortBy={$sortBy}&desc=1&pageSize=5";
-
     $context = stream_context_create(['http' => ['timeout' => 5]]);
     $json = @file_get_contents($url, false, $context);
 
@@ -33,16 +31,18 @@ if ($searchQuery) {
     <?php if ($searchQuery): ?>
         <?php foreach ($games as $gameName): 
             $game = getGameInfo($gameName);
-            if ($game):
+            $rawgInfo = getRawgInfo($gameName);
+            if ($game && $rawgInfo):
         ?>
             <div class="game">
-                <a href="gameinfo.php?game=<?php echo urlencode($game['external']); ?>" class="game-link">
-                    <img src="<?php echo $game['thumb']; ?>" alt="<?php echo htmlspecialchars($game['external']); ?>">
-                    <div class="game-title"><?php echo htmlspecialchars($game['external']); ?></div>
+                <a href="gameinfo.php?game=<?php echo urlencode($game['external'] ?? ''); ?>" class="game-link">
+                    <img src="<?php echo htmlspecialchars($rawgInfo['image'] ?? $game['thumb'] ?? ''); ?>"
+                         alt="<?php echo htmlspecialchars($game['external'] ?? ''); ?>">
+                    <div class="game-title"><?php echo htmlspecialchars($game['external'] ?? ''); ?></div>
                     <div class="price">
                         Ціна:
-                        <span class="price-usd" data-price="<?php echo $game['cheapest']; ?>">
-                            <?php echo $game['cheapest']; ?>
+                        <span class="price-usd" data-price="<?php echo $game['cheapest'] ?? ''; ?>">
+                            <?php echo $game['cheapest'] ?? ''; ?>
                         </span>
                         <span class="price-symbol">$</span>
                     </div>
@@ -50,7 +50,7 @@ if ($searchQuery) {
             </div>
         <?php else: ?>
             <div class="game">
-                <div class="game-title"><?php echo htmlspecialchars($gameName); ?></div>
+                <div class="game-title"><?php echo htmlspecialchars($gameName ?? ''); ?></div>
                 <div class="price">Гру не знайдено</div>
             </div>
         <?php endif; endforeach; ?>
@@ -66,14 +66,17 @@ if ($searchQuery) {
             <?php if ($topDiscounts === false || empty($topDiscounts)): ?>
                 <p>Не вдалося завантажити список знижок. Спробуйте пізніше.</p>
             <?php else: ?>
-                <?php foreach ($topDiscounts as $game): ?>
+                <?php foreach ($topDiscounts as $game): 
+                    $rawgInfo = getRawgInfo($game['title']);
+                ?>
                     <div class="game">
-                        <a href="gameinfo.php?game=<?php echo urlencode($game['title']); ?>" class="game-link">
-                            <img src="<?php echo $game['thumb']; ?>" alt="<?php echo htmlspecialchars($game['title']); ?>">
-                            <div class="game-title"><?php echo htmlspecialchars($game['title']); ?></div>
+                        <a href="gameinfo.php?game=<?php echo urlencode($game['title'] ?? ''); ?>" class="game-link">
+                            <img src="<?php echo htmlspecialchars($rawgInfo['image'] ?? $game['thumb'] ?? ''); ?>"
+                                 alt="<?php echo htmlspecialchars($game['title'] ?? ''); ?>">
+                            <div class="game-title"><?php echo htmlspecialchars($game['title'] ?? ''); ?></div>
                             <div class="price">
-                                <span class="price-usd" data-price="<?php echo $game['salePrice']; ?>">
-                                    <?php echo number_format($game['salePrice'], 2); ?>
+                                <span class="price-usd" data-price="<?php echo $game['salePrice'] ?? ''; ?>">
+                                    <?php echo number_format($game['salePrice'] ?? 0, 2); ?>
                                 </span>
                                 <span class="price-symbol">$</span>
                             </div>
@@ -92,14 +95,17 @@ if ($searchQuery) {
             <?php if ($topPopular === false || empty($topPopular)): ?>
                 <p>Не вдалося завантажити список популярних ігор. Спробуйте пізніше.</p>
             <?php else: ?>
-                <?php foreach ($topPopular as $game): ?>
+                <?php foreach ($topPopular as $game): 
+                    $rawgInfo = getRawgInfo($game['title']);
+                ?>
                     <div class="game">
-                        <a href="gameinfo.php?game=<?php echo urlencode($game['title']); ?>" class="game-link">
-                            <img src="<?php echo $game['thumb']; ?>" alt="<?php echo htmlspecialchars($game['title']); ?>">
-                            <div class="game-title"><?php echo htmlspecialchars($game['title']); ?></div>
+                        <a href="gameinfo.php?game=<?php echo urlencode($game['title'] ?? ''); ?>" class="game-link">
+                            <img src="<?php echo htmlspecialchars($rawgInfo['image'] ?? $game['thumb'] ?? ''); ?>"
+                                 alt="<?php echo htmlspecialchars($game['title'] ?? ''); ?>">
+                            <div class="game-title"><?php echo htmlspecialchars($game['title'] ?? ''); ?></div>
                             <div class="price">
-                                <span class="price-usd" data-price="<?php echo $game['salePrice']; ?>">
-                                    <?php echo number_format($game['salePrice'], 2); ?>
+                                <span class="price-usd" data-price="<?php echo $game['salePrice'] ?? ''; ?>">
+                                    <?php echo number_format($game['salePrice'] ?? 0, 2); ?>
                                 </span>
                                 <span class="price-symbol">$</span>
                             </div>
