@@ -12,6 +12,7 @@ $stores = getStoresMap();
 
 <div class="gameinfo">
     <div class="game-media">
+        <!-- Ціни в магазинах -->
         <div class="deals">
             <h2>Ціни в магазинах:</h2>
             <ul>
@@ -34,16 +35,19 @@ $stores = getStoresMap();
             </ul>
         </div>
 
-        <img src="<?php echo htmlspecialchars($rawgInfo['image'] ?? $game['thumb']); ?>"
-             alt="<?php echo htmlspecialchars($rawgInfo['name'] ?? $game['external']); ?>"
-             class="main-screenshot">
-
-        
+        <div class="main-screenshot-container">
+            <button class="arrow-left">&#8592;</button>
+                <img id="main-screenshot"
+                    src="<?php echo htmlspecialchars($rawgInfo['screenshots'][0]['image'] ?? ''); ?>"
+                    alt="Main Screenshot"
+                    style="width: 80%; max-width: 800px; border-radius: 10px; object-fit: cover;">
+                <button class="arrow-right">&#8594;</button>
+        </div>
     </div>
 
-    
     <div class="game-details">
         <h1><?php echo htmlspecialchars($rawgInfo['name'] ?? $game['external']); ?></h1>
+
         <p><strong>Рейтинг:</strong> <?php echo $rawgInfo['rating'] ?? 'N/A'; ?></p>
 
         <p><strong>Жанри:</strong>
@@ -65,7 +69,18 @@ $stores = getStoresMap();
             }
             ?>
         </p>
+
+        <p><strong>Час гри:</strong> <?php echo $rawgInfo['playtime'] ?? 'N/A'; ?> годин</p>
+
+        <p><strong>Дата релізу:</strong> <?php echo $rawgInfo['released'] ?? 'N/A'; ?></p>
+
+        <p><strong>Metacritic:</strong> <?php echo $rawgInfo['metacritic'] ?? 'N/A'; ?></p>
+        <p><a href="<?php echo $rawgInfo['metacritic_url'] ?? '#'; ?>" target="_blank">Переглянути на Metacritic</a></p>
     </div>
 </div>
+
+<script id="screenshot-data" type="application/json">
+    <?php echo json_encode($rawgInfo['screenshots']); ?>
+</script>
 
 <?php include 'parts/footer.php'; ?>
