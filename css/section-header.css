@@ -1,4 +1,3 @@
-/* ---------- Новое: Стили для заголовка + кнопки "Повний список" ---------- */
 .section-header {
     display: flex;
     justify-content: space-between;

@@ -26,10 +26,9 @@
     font-size: 0.85em;
 }
 
-/* Стили для главного скриншота */
 .main-screenshot {
-    width: 100%;            /* Изображение будет растягиваться на 100% от доступной ширины */
-    max-width: 500px;       /* Ограничение максимальной ширины изображения */
+    width: 100%;            
+    max-width: 500px;      
     height: auto;
     border-radius: 10px;
     object-fit: cover;
@@ -37,19 +36,17 @@
     margin: 0 auto;
 }
 
-/* Контейнер с изображением и стрелками */
 .main-screenshot-container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    max-width: 500px;       /* Ограничим максимальную ширину контейнера */
-    width: 100%;            /* Контейнер будет занимать 100% доступной ширины */
-    overflow: hidden;       /* Скрыть любые элементы, выходящие за пределы контейнера */
+    max-width: 500px;       
+    width: 100%;            
+    overflow: hidden;       
 }
 
-/* Стрелки переключения изображений */
 .arrow-left,
 .arrow-right {
     position: absolute;
@@ -69,7 +66,7 @@
 .arrow-left:hover,
 .arrow-right:hover {
     background-color: rgba(0, 0, 0, 0.7);
-    transform: translateY(-50%) scale(1.1); /* Добавим эффект увеличения при наведении */
+    transform: translateY(-50%) scale(1.1); 
 }
 
 .arrow-left {

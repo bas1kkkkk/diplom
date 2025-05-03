@@ -1,4 +1,3 @@
-/* Основные стили для тела страницы */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,13 +5,11 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Стили для светлой темы */
 body.light-theme {
     background-color: white;
     color: black;
 }
 
-/* Стили для кнопок на странице */
 button {
     padding: 10px;
     font-size: 16px;
@@ -20,54 +17,45 @@ button {
     transition: background-color 0.3s ease;
 }
 
-/* Стили для темной темы */
 body.dark-theme {
     background-color: black;
     color: white;
 }
 
-/* Стили для игры в темной теме */
 body.dark-theme .game {
     background-color: #333;
     border-color: #444;
 }
 
-/* Стили для названия игры в темной теме */
 body.dark-theme .game-title {
     color: #ccc;
 }
 
-/* Стили для цены игры в темной теме */
 body.dark-theme .price {
     color: #4CAF50;
 }
 
-/* Стили для поля поиска в темной теме */
 body.dark-theme #search-input {
     background-color: #555;
     color: white;
     border-color: #666;
 }
 
-/* Стили для поля поиска при фокусе в темной теме */
 body.dark-theme #search-input:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Стили для кнопок в темной теме */
 body.dark-theme button {
     background-color: #333;
     color: white;
     border: none;
 }
 
-/* Стили для кнопок на hover в темной теме */
 body.dark-theme button:hover {
     background-color: #555;
 }
 
-/* Стили для заголовка сайта */
 .site-header {
     background-color: #f8f8f8;
     padding: 15px 30px;
@@ -77,26 +65,22 @@ body.dark-theme button:hover {
     z-index: 1000;
 }
 
-/* Контейнер для заголовка */
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Стили для названия сайта */
 .site-title {
     font-size: 24px;
     margin: 0;
 }
 
-/* Контейнер для кнопок в шапке */
 .header-buttons {
     display: flex;
     gap: 10px;
 }
 
-/* Стили для кнопок в шапке */
 .header-buttons button {
     background-color: #007bff;
     color: white;
@@ -107,12 +91,10 @@ body.dark-theme button:hover {
     cursor: pointer;
 }
 
-/* Стили для кнопок в шапке при hover */
 .header-buttons button:hover {
     background-color: #0056b3;
 }
 
-/* Стили для заголовка и кнопок в темной теме */
 body.dark-theme .site-header {
     background-color: #333;
     border-bottom-color: #444;
@@ -126,25 +108,21 @@ body.dark-theme .header-buttons button:hover {
     background-color: #777;
 }
 
-/* Стили для выпадающего списка валюты в темной теме */
 body.dark-theme #currency-selector {
     background-color: #444;
     color: white;
     border-color: #666;
 }
 
-/* Стили для выпадающего списка валюты при фокусе в темной теме */
 body.dark-theme #currency-selector:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Стили для выпадающего списка валюты при наведении в темной теме */
 body.dark-theme #currency-selector:hover {
     background-color: #555;
 }
 
-/* Стили для кнопки лупы */
 .search-button {
     background: none;
     border: none;
@@ -155,12 +133,10 @@ body.dark-theme #currency-selector:hover {
     margin-left: 10px;
 }
 
-/* Эффект при наведении на кнопку лупы */
 .search-button:hover {
     transform: scale(1.1); 
 }
 
-/* Стили для кнопки лупы в темной теме */
 body.dark-theme .search-button {
     color: white;
 }
@@ -212,4 +188,3 @@ body.dark-theme .see-all-button:hover {
     background-color: #66b2ff;
     color: black;
 }
-
