@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-require_once 'currencyConverter.php';
+require_once __DIR__ . '/../api/gamedata.php';
 
 $to = isset($_GET['to']) ? strtoupper($_GET['to']) : 'UAH';
 $rate = getExchangeRate('USD', $to);

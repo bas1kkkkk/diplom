@@ -1,8 +1,7 @@
 <?php
 
-// 🔁 Універсальна функція кешування запиту
 function getCachedData($cacheKey, $url, $ttl = 86400) {
-    $cacheDir = __DIR__ . '/cache';
+    $cacheDir = __DIR__ . '/../cache'; 
 
     // 📁 Створюємо папку cache, якщо її не існує
     if (!is_dir($cacheDir)) {
@@ -27,7 +26,7 @@ function getCachedData($cacheKey, $url, $ttl = 86400) {
     return json_decode($response, true);
 }
 
-// 🎮 Отримати загальну інформацію про гру з CheapShark
+// Отримати загальну інформацію про гру з CheapShark
 function getGameInfo($gameName) {
     $url = "https://www.cheapshark.com/api/1.0/games?title=" . urlencode($gameName) . "&limit=1";
     $data = getCachedData('cheapshark_game_' . $gameName, $url);
@@ -44,7 +43,7 @@ function getGameInfo($gameName) {
     return null;
 }
 
-// 💸 Отримати список знижок для гри за її ID
+// Отримати список знижок для гри за її ID
 function getGameDeals($gameID) {
     $url = "https://www.cheapshark.com/api/1.0/games?id=" . urlencode($gameID);
     $data = getCachedData('cheapshark_deals_' . $gameID, $url);
@@ -56,7 +55,7 @@ function getGameDeals($gameID) {
     return null;
 }
 
-// 🛍 Отримати список магазинів для співставлення ID => Назва
+// Отримати список магазинів для співставлення ID => Назва
 function getStoresMap() {
     $url = 'https://www.cheapshark.com/api/1.0/stores';
     $stores = getCachedData('cheapshark_stores', $url);
@@ -69,11 +68,11 @@ function getStoresMap() {
     return $storeMap;
 }
 
-// 📊 Отримати детальну інформацію про гру з RAWG API
+// Отримати детальну інформацію про гру з RAWG API
 function getRawgInfo($gameName) {
     $apiKey = '3c73e733b66c4c38b0c30137de245589';
 
-    // 🔍 Пошук гри за назвою
+    // Пошук гри за назвою
     $searchUrl = "https://api.rawg.io/api/games?search=" . urlencode($gameName) . "&key=$apiKey&page_size=1";
     $searchData = getCachedData('rawg_search_' . $gameName, $searchUrl);
 
@@ -81,15 +80,12 @@ function getRawgInfo($gameName) {
         $game = $searchData['results'][0];
         $slug = $game['slug'];
 
-        // Запрос подробной информации о игре
         $detailsUrl = "https://api.rawg.io/api/games/$slug?key=$apiKey";
         $details = getCachedData('rawg_details_' . $slug, $detailsUrl);
 
-        // Запрос скриншотов игры (5 скриншотов)
         $screenshotsUrl = "https://api.rawg.io/api/games/$slug/screenshots?key=$apiKey&page_size=5";
         $screenshotsData = getCachedData('rawg_screenshots_' . $slug, $screenshotsUrl);
 
-        // Собираем все нужные данные
         return [
             'name' => $details['name'] ?? '',
             'image' => $details['background_image'] ?? '',
@@ -102,12 +98,27 @@ function getRawgInfo($gameName) {
             'released' => $details['released'] ?? '',
             'metacritic_url' => $details['metacritic_url'] ?? '',
             'platforms' => $details['platforms'] ?? [],
-            'screenshots' => $screenshotsData['results'] ?? [],  // Скриншоты
+            'screenshots' => $screenshotsData['results'] ?? [], // Скриншоты
         ];
     }
 
     return null;
 }
 
+// Функция для получения обменного курса валют
+function getExchangeRate($from, $to) {
+    $apiKey = "0a53a8c63b3e85ffcc6385d1";
+    $cacheKey = "exchange_rate_{$from}_to_{$to}";
+    $url = "https://v6.exchangerate-api.com/v6/$apiKey/latest/" . strtoupper($from);
+
+    // Получаем данные из кеша или API
+    $data = getCachedData($cacheKey, $url);
+
+    if ($data && isset($data['conversion_rates'][strtoupper($to)])) {
+        return $data['conversion_rates'][strtoupper($to)];
+    }
+
+    return null;
+}
 
 ?>

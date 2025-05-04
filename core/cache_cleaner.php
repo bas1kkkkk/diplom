@@ -1,6 +1,4 @@
 <?php
-
-// Функція для очищення старих кеш-файлів (старше 4 днів)
 function cleanCache($maxAgeSeconds = 345600) {
     $cacheDir = __DIR__ . '/cache';
 

@@ -1,5 +1,5 @@
 <?php
-require_once 'gameData.php';
+require_once 'api/gameData.php';
 
 $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
 

@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const response = await fetch(`convert.php?to=${currency}`);
+        const response = await fetch('../core/convert.php?to=' + currency);
         const data = await response.json();
 
         if (data.rate) {

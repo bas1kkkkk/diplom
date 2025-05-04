@@ -1,5 +1,5 @@
 <?php
-require_once 'gameData.php';
+require_once '<api/gameData.php';
 
 $gameName = isset($_GET['game']) ? $_GET['game'] : '';
 $game = getGameInfo($gameName);
