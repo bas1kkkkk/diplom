@@ -15,6 +15,9 @@ $stores = getStoresMap();
         <!-- Ціни в магазинах -->
         <div class="deals">
             <h2>Ціни в магазинах:</h2>
+            <p class="price-warning" style="color: red; font-size: 0.9em; margin-bottom: 10px;">
+                Зверніть увагу: ціни можуть бути неточними, оскільки використовується API для конвертації валют. У кожного магазину свої правила для встановлення цін.
+            </p>
             <ul>
                 <?php foreach ($deals as $deal): ?>
                     <li>
@@ -70,7 +73,7 @@ $stores = getStoresMap();
             ?>
         </p>
 
-        <p><strong>Час гри:</strong> <?php echo $rawgInfo['playtime'] ?? 'N/A'; ?> годин</p>
+        <p><strong>Час проходження гри:</strong> <?php echo $rawgInfo['playtime'] ?? 'N/A'; ?> годин</p>
 
         <p><strong>Дата релізу:</strong> <?php echo $rawgInfo['released'] ?? 'N/A'; ?></p>
 

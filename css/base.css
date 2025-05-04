@@ -188,3 +188,7 @@ body.dark-theme .see-all-button:hover {
     background-color: #66b2ff;
     color: black;
 }
+
+a {
+    text-decoration: none; 
+}

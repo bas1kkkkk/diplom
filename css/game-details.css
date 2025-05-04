@@ -26,6 +26,15 @@
     font-size: 0.85em;
 }
 
+.dark-theme .tag {
+    background-color: #333; 
+    color: white; 
+}
+
+.dark-theme a {
+    color: #ffcc00; 
+}
+
 .main-screenshot {
     width: 100%;            
     max-width: 500px;      
@@ -76,4 +85,3 @@
 .arrow-right {
     right: 10px;
 }
-
