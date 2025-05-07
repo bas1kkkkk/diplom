@@ -4,13 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form');
     const list = document.getElementById('autocomplete-list');
 
-    // 🔍 Обработчик кнопки поиска
+    //Обработчик кнопки поиска
     button.addEventListener('click', function(event) {
         event.preventDefault();
         form.submit();
     });
 
-    // ⌨️ Обработчик Enter в поле
+    //Обработчик Enter в поле
     input.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             event.preventDefault(); // предотвращаем двойной submit
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 📦 Автозаполнение
+    //Автозаполнение
     input.addEventListener('input', async function () {
         const query = this.value.trim();
         list.innerHTML = '';

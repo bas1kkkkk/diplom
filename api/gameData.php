@@ -3,25 +3,25 @@
 function getCachedData($cacheKey, $url, $ttl = 86400) {
     $cacheDir = __DIR__ . '/../cache'; 
 
-    // 📁 Створюємо папку cache, якщо її не існує
+    // Створюємо папку cache, якщо її не існує
     if (!is_dir($cacheDir)) {
         mkdir($cacheDir, 0777, true);
     }
 
     $cacheFile = $cacheDir . '/' . md5($cacheKey) . '.json';
 
-    // 🧾 Якщо файл існує і ще не застарів — повертаємо з кешу
+    //Якщо файл існує і ще не застарів — повертаємо з кешу
     if (file_exists($cacheFile) && (time() - filemtime($cacheFile) < $ttl)) {
         return json_decode(file_get_contents($cacheFile), true);
     }
 
-    // 🌐 Отримуємо дані з API
+    // Отримуємо дані з API
     $response = @file_get_contents($url);
     if ($response === false) {
         return null;
     }
 
-    // 💾 Зберігаємо у файл кешу
+    // Зберігаємо у файл кешу
     file_put_contents($cacheFile, $response);
     return json_decode($response, true);
 }
@@ -98,7 +98,7 @@ function getRawgInfo($gameName) {
             'released' => $details['released'] ?? '',
             'metacritic_url' => $details['metacritic_url'] ?? '',
             'platforms' => $details['platforms'] ?? [],
-            'screenshots' => $screenshotsData['results'] ?? [], // Скриншоты
+            'screenshots' => $screenshotsData['results'] ?? [], 
         ];
     }
 
@@ -111,7 +111,6 @@ function getExchangeRate($from, $to) {
     $cacheKey = "exchange_rate_{$from}_to_{$to}";
     $url = "https://v6.exchangerate-api.com/v6/$apiKey/latest/" . strtoupper($from);
 
-    // Получаем данные из кеша или API
     $data = getCachedData($cacheKey, $url);
 
     if ($data && isset($data['conversion_rates'][strtoupper($to)])) {
