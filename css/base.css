@@ -192,3 +192,34 @@ body.dark-theme .see-all-button:hover {
 a {
     text-decoration: none; 
 }
+
+.warning-container {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    font-weight: bold;
+    color: red;
+}
+
+.warning-container .tooltip-text {
+    visibility: hidden;
+    width: 280px;
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    padding: 8px;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 125%; /* немного выше текста */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    font-size: 0.85em;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.warning-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}

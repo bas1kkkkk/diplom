@@ -15,9 +15,12 @@ $stores = getStoresMap();
         <!-- Ціни в магазинах -->
         <div class="deals">
             <h2>Ціни в магазинах:</h2>
-            <p class="price-warning" style="color: red; font-size: 0.9em; margin-bottom: 10px;">
-                Зверніть увагу: ціни можуть бути неточними, оскільки використовується API для конвертації валют. У кожного магазину свої правила для встановлення цін.
-            </p>
+                <div class="warning-container">
+                ⚠️ Warning
+                <div class="tooltip-text">
+                Ціни можуть відрізнятися через використання API конвертації валют і правила магазинів.
+                </div>
+</div>
             <ul>
                 <?php foreach ($deals as $deal): ?>
                     <li>
